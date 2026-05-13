@@ -1,0 +1,110 @@
+{
+  "total_requests": 400,
+  "availability": 1.0,
+  "error_rate": 0.0,
+  "latency_p50_ms": 211.44,
+  "latency_p95_ms": 518.88,
+  "latency_p99_ms": 544.09,
+  "fallback_success_rate": 1.0,
+  "cache_hit_rate": 0.405,
+  "circuit_open_count": 32,
+  "recovery_time_ms": 3199.2698510487876,
+  "estimated_cost": 0.105498,
+  "estimated_cost_saved": 0.1215,
+  "scenarios": {
+    "primary_timeout_100": "pass",
+    "primary_flaky_50": "pass",
+    "all_healthy": "pass",
+    "cache_stale_candidate": "pass"
+  },
+  "scenario_details": {
+    "primary_timeout_100": {
+      "availability": 1.0,
+      "fallback_success_rate": 1.0,
+      "cache_hit_rate": 0.0,
+      "circuit_open_count": 25,
+      "static_fallbacks": 0,
+      "recovery_time_ms": null
+    },
+    "primary_flaky_50": {
+      "availability": 1.0,
+      "fallback_success_rate": 1.0,
+      "cache_hit_rate": 0.0,
+      "circuit_open_count": 7,
+      "static_fallbacks": 0,
+      "recovery_time_ms": 3199.2698510487876
+    },
+    "all_healthy": {
+      "availability": 1.0,
+      "fallback_success_rate": 0.0,
+      "cache_hit_rate": 0.8,
+      "circuit_open_count": 0,
+      "static_fallbacks": 0,
+      "recovery_time_ms": null
+    },
+    "cache_stale_candidate": {
+      "availability": 1.0,
+      "fallback_success_rate": 0.0,
+      "cache_hit_rate": 0.82,
+      "circuit_open_count": 0,
+      "static_fallbacks": 0,
+      "recovery_time_ms": null
+    }
+  },
+  "cache_comparison": {
+    "without_cache": {
+      "total_requests": 30,
+      "availability": 1.0,
+      "error_rate": 0.0,
+      "latency_p50_ms": 202.46,
+      "latency_p95_ms": 235.6,
+      "latency_p99_ms": 237.52,
+      "fallback_success_rate": 0.0,
+      "cache_hit_rate": 0.0,
+      "circuit_open_count": 0,
+      "recovery_time_ms": null,
+      "estimated_cost": 0.01696,
+      "estimated_cost_saved": 0.0,
+      "scenarios": {},
+      "scenario_details": {
+        "cache_comparison": {
+          "availability": 1.0,
+          "fallback_success_rate": 0.0,
+          "cache_hit_rate": 0.0,
+          "circuit_open_count": 0,
+          "static_fallbacks": 0,
+          "recovery_time_ms": null
+        }
+      }
+    },
+    "with_cache": {
+      "total_requests": 30,
+      "availability": 1.0,
+      "error_rate": 0.0,
+      "latency_p50_ms": 0.23,
+      "latency_p95_ms": 233.83,
+      "latency_p99_ms": 235.9,
+      "fallback_success_rate": 0.0,
+      "cache_hit_rate": 0.7333,
+      "circuit_open_count": 0,
+      "recovery_time_ms": null,
+      "estimated_cost": 0.00368,
+      "estimated_cost_saved": 0.0165,
+      "scenarios": {},
+      "scenario_details": {
+        "cache_comparison": {
+          "availability": 1.0,
+          "fallback_success_rate": 0.0,
+          "cache_hit_rate": 0.7333,
+          "circuit_open_count": 0,
+          "static_fallbacks": 0,
+          "recovery_time_ms": null
+        }
+      }
+    },
+    "notes": {
+      "requests": 30,
+      "provider_fail_rate": 0.0
+    }
+  }
+}

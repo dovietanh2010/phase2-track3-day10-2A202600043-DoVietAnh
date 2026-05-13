@@ -27,3 +27,8 @@ src = ["src", "tests", "scripts"]
 python_version = "3.10"
 strict = true
 mypy_path = "src"
+incremental = false
+
+[[tool.mypy.overrides]]
+module = "yaml"
+ignore_missing_imports = true
