@@ -33,10 +33,10 @@ User -> Gateway -> Cache check -> cache hit
 | SLI | SLO target | Actual value | Met? |
 |---|---|---:|---|
 | Availability | >= 99% | 1 | yes |
-| Latency P95 | < 2500 ms | 518.88 | yes |
+| Latency P95 | < 2500 ms | 519.24 | yes |
 | Fallback success rate | >= 95% | 1 | yes |
 | Cache hit rate | >= 10% | 0.405 | yes |
-| Recovery time | < 5000 ms | 3199.2699 | yes |
+| Recovery time | < 5000 ms | 3196.1394 | yes |
 
 ## 4. Metrics
 
@@ -45,13 +45,13 @@ User -> Gateway -> Cache check -> cache hit
 | total_requests | 400 |
 | availability | 1 |
 | error_rate | 0 |
-| latency_p50_ms | 211.44 |
-| latency_p95_ms | 518.88 |
-| latency_p99_ms | 544.09 |
+| latency_p50_ms | 212.61 |
+| latency_p95_ms | 519.24 |
+| latency_p99_ms | 544.23 |
 | fallback_success_rate | 1 |
 | cache_hit_rate | 0.405 |
 | circuit_open_count | 32 |
-| recovery_time_ms | 3199.2699 |
+| recovery_time_ms | 3196.1394 |
 | estimated_cost | 0.1055 |
 | estimated_cost_saved | 0.1215 |
 
@@ -59,8 +59,8 @@ User -> Gateway -> Cache check -> cache hit
 
 | Metric | Without cache | With cache | Delta |
 |---|---:|---:|---:|
-| latency_p50_ms | 202.46 | 0.23 | -99.9% |
-| latency_p95_ms | 235.6 | 233.83 | -0.8% |
+| latency_p50_ms | 202.45 | 0.3 | -99.9% |
+| latency_p95_ms | 235.45 | 233.7 | -0.7% |
 | estimated_cost | 0.017 | 0.0037 | -78.3% |
 | cache_hit_rate | 0 | 0.7333 | +0.7333 |
 
@@ -90,7 +90,26 @@ docker compose exec redis redis-cli KEYS "rl:cache:*"
 Observed keys:
 
 ```text
-rl:cache:e6bb724160ee
+1) "rl:cache:095946136fea"
+2) "rl:cache:b6af19a70a20"
+3) "rl:cache:cccf278bceae"
+4) "rl:cache:9e413fd814eb"
+5) "rl:cache:8baa2cfa11fa"
+```
+
+Cached entry detail:
+
+```bash
+docker compose exec redis redis-cli HGETALL "rl:cache:095946136fea"
+```
+
+```text
+1) "response"
+2) "[primary] reliable answer for: Explain circuit breaker states in one paragraph."
+3) "metadata"
+4) "{\"provider\": \"primary\"}"
+5) "query"
+6) "Explain circuit breaker states in one paragraph."
 ```
 
 ## 7. Chaos Scenarios

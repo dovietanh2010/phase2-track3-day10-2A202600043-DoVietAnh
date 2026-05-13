@@ -20,9 +20,8 @@ class CircuitOpenError(RuntimeError):
 
 @dataclass(slots=True)
 class CircuitBreaker:
-    """Circuit breaker skeleton.
+    """Production-safe circuit breaker state machine.
 
-    TODO(student): Implement a production-safe state machine:
     - CLOSED: calls pass through; count failures.
     - OPEN: fail fast until reset timeout elapses.
     - HALF_OPEN: allow a probe; close on success or re-open on failure.
